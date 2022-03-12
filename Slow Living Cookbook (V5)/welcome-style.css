@@ -1,0 +1,56 @@
+
+
+body {
+  font-family: monospace;
+  display: flex;
+  font-size: 1rem;
+  color: #d3d1c9;
+  background: #353523;
+  max-width:50%;
+  margin: 0 auto;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+}
+
+/* for links to page we wrote to highlight them when you hover*/
+.link a:hover {color:violet;
+cursor: grab;}
+
+.align-left a:hover {background-color: #FFB8BF;
+cursor: grab;;}
+
+/* so that links to external sites inherit*/
+.external{
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* so that our links are a standout color*/
+a{color: #ffb8bf;
+text-decoration: none;}
+
+a:active {color: purple;}
+
+/* inset link to composting sounds mounds page */
+.align-left {float: right;
+  text-align: right;
+}
+.pre{font-family: Courier New, monospace}
+
+
+/*to make words and objects collect */
+.sticky {background-color: inherit;
+	position: sticky;
+margin-top: 400vh;
+top: 0;
+z-index: 999;}
+
+/* for where comments were left in the doc */
+.comment {background-color: #57573c;}
+
+/* Quotes div on main index page*/
+.quotes{text-align: center;
+margin-top: 10rem;}
