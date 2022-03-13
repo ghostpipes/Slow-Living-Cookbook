@@ -58,3 +58,25 @@ justify-content: space-evenly;}
 /* Quotes div on main index page*/
 .quotes{text-align: center;
 margin-top: 10rem;}
+
+@media all and (max-width: 500px) {
+.p-c {
+width: 17em;
+}
+.project-card{
+width: 17em;
+}
+.welcome{
+height: 50vh;
+}
+.nav-item{
+width: 100%;
+}
+.about-overflow{
+padding-right: 10px;
+padding-left: 5px;
+flex-flow: column nowrap;
+align-content: center;
+align-items: center;j
+ustify-items: space-around;
+}
