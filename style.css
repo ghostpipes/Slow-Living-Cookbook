@@ -37,6 +37,10 @@ a:active {color: purple;}
 }
 .pre{font-family: Courier New, monospace}
 
+.small {
+    font-size: 1rem;
+}
+
 
 /*to make words and objects collect */
 .sticky {background-color: inherit;
@@ -47,11 +51,8 @@ z-index: 999;
 justify-content: space-evenly;}
 
 .evelyn {color: #c1c3b4;}
-
 .meech{color: #8a895b;}
-
 .collin {color: #c9bd80;}
-
 .collin2 {color: #c9bd80;}
 
 /* for where comments were left in the doc */
