@@ -10,6 +10,10 @@ body {
 
 }
 
+h3 {
+   font-family: monospace;
+   font-size: .75rem;
+
 /* for links to page we wrote to highlight them when you hover*/
 .link a:hover {color:violet;
 cursor: grab;}
@@ -22,6 +26,7 @@ cursor: grab;;}
   color: inherit;
   text-decoration: underline;
 }
+
 
 /* so that our links are a standout color*/
 a{color: #ffb8bf;
