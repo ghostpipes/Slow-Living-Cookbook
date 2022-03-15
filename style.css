@@ -35,10 +35,13 @@ a:active {color: purple;}
 .align-left {float: right;
   text-align: right;
 }
-.pre{font-family: Courier New, monospace}
+.pre {
+    font-family: Courier New, monospace;
+    text-align: center;    
+}
 
 .small {
-    font-size: 1rem;
+    font-size: .75rem;
 }
 
 
