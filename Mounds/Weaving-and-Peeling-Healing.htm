@@ -4,9 +4,109 @@
 <title>Weaving and Peeling Healing</title>
 <link rel="stylesheet" type="text/css" href="../style.css">
 <link rel="icon" type="image/x-icon" href="../Favicon.png">
+
+<script src="https://unpkg.com/tone"></script>
+
+<script>
+
+  var delta = 0;
+  var synthIntervalA;
+  var synthIntervalB;
+  var synthIntervalC;
+  var synthIntervalD;
+
+  function loop() {
+      const loop = setInterval(anim, 10);
+  }
+
+  function anim() {
+      delta += 0.01;
+      setRotation(delta);
+      // console.log(delta);
+      delta %= 6;
+  }
+
+  function createDronePlusPanner(positionX, positionY, positionZ) {
+      const panner = new Tone.Panner3D({
+          panningModel: "HRTF",
+          positionX,
+          positionY,
+          positionZ,
+      }).toDestination();
+
+      const synth = new Tone.Synth({
+          oscillator: {
+              type: "sine"
+          },
+          envelope: {
+              attack: 0.95,
+              decay: 0.95,
+              sustain: .95,
+              release: 5
+          },
+          volume: -12
+      }).connect(panner);
+      
+      return synth;
+  }
+
+
+  function chord(listOfFreqs) {
+
+      for (const freq of listOfFreqs) {
+          monoDrone(freq);
+      }
+
+  }
+
+
+  function monoDrone(val) {
+      var randX = Math.random() * 2;
+      var randY = Math.random() * 2;
+      var randZ = Math.random() * 2;
+
+      var synth = createDronePlusPanner(randX,randY,randZ);
+      const now = Tone.now();
+
+      synth.triggerAttack(val, now);
+      synth.triggerRelease(now+28);
+      }
+
+  function setRotation(angle) {
+Tone.Listener.forwardX.value = Math.sin(angle);
+Tone.Listener.forwardY.value = 0;
+Tone.Listener.forwardZ.value = -Math.cos(angle);
+}
+
+function playSelection() {
+      clearInterval(synthIntervalA);
+      chord([349.23,440.00,523.25])
+      synthIntervalA = setInterval("playSelection()", 28500);
+}
+  
+</script>
+
+<style type="text/css">
+
+  button {
+    background-color: #353523;
+    border: none;
+    padding-bottom: 4px;
+    color: #ffb8bf;
+    line-height: inherit;
+    font-size: inherit;
+  }
+
+  button:focus {
+    border: none;
+  }
+
+</style>
+
 </head>
-<body>
+<body onload="loop()">
 <div class="collin">
+  
   <p><h3><b> <i>Weaving and Peeling Healing</i> </b></h3></p>
 <p> I think about resource extraction as a long-haul,
 <br> an expanding and growing economy,
@@ -18,7 +118,7 @@
 <br>As extractive economies are unwound
 <br>the next step is reweaving new slower economies
 <br>
-<br>I can remember about a year ago a shift
+<br>I can remember about a year ago a shift <button onclick="playSelection()">▶</button>
 <br>I stopped viewing cattails as an invasive species
 <br>I began seeing them as my relations, textiles, fire-starters and food
 <br>I wove my first basket but,

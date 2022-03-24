@@ -5,6 +5,104 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="icon" type="image/x-icon" href="Favicon0.png">
+
+		<script src="https://unpkg.com/tone"></script>
+		<script>
+
+            var delta = 0;
+            var synthIntervalA;
+            var synthIntervalB;
+            var synthIntervalC;
+            var synthIntervalD;
+
+            function loop() {
+                const loop = setInterval(anim, 10);
+            }
+
+            function anim() {
+                delta += 0.01;
+                setRotation(delta);
+                // console.log(delta);
+                delta %= 6;
+            }
+
+            function createDronePlusPanner(positionX, positionY, positionZ) {
+                const panner = new Tone.Panner3D({
+                    panningModel: "HRTF",
+                    positionX,
+                    positionY,
+                    positionZ,
+                }).toDestination();
+
+                const synth = new Tone.Synth({
+                    oscillator: {
+                        type: "sine"
+                    },
+                    envelope: {
+                        attack: 0.95,
+                        decay: 0.95,
+                        sustain: .95,
+                        release: 5
+                    },
+                    volume: -12
+                }).connect(panner);
+                
+                return synth;
+            }
+
+
+            function chord(listOfFreqs) {
+
+                for (const freq of listOfFreqs) {
+                    monoDrone(freq);
+                }
+
+            }
+
+
+            function monoDrone(val) {
+                var randX = Math.random() * 2;
+                var randY = Math.random() * 2;
+                var randZ = Math.random() * 2;
+
+                var synth = createDronePlusPanner(randX,randY,randZ);
+                const now = Tone.now();
+
+                synth.triggerAttack(val, now);
+                synth.triggerRelease(now+28);
+                }
+
+            function setRotation(angle) {
+			    Tone.Listener.forwardX.value = Math.sin(angle);
+			    Tone.Listener.forwardY.value = 0;
+			    Tone.Listener.forwardZ.value = -Math.cos(angle);
+		    }
+
+			function playSelection() {
+                clearInterval(synthIntervalA);
+                chord([349.23,415.30,523.25,622.25]);
+                synthIntervalA = setInterval("playSelection()", 28500);
+			}
+            
+		</script>
+
+		<style type="text/css">
+
+			button {
+			background-color: #353523;
+			border: none;
+			padding-bottom: 4px;
+			color: #ffb8bf;
+			line-height: inherit;
+			font-size: inherit;
+			}
+		
+			button:focus {
+			border: none;
+			}
+		
+		</style>
+
 	</head>
 	
 		<h3>Material Praxis for Ritual Healing</h3>
@@ -14,7 +112,7 @@
 		<a href="https://drive.google.com/file/d/1jy5XMWYmjWNviLm3fiG5XHcbCtVmLxH4/view?usp=sharing" class="external">essay</a> in Queer.Archive.Work.’s <a 		    href="https://queer.archive.work/publications/reader2/index.html" class="external"> Urgency Reader 2 (2020)</a>, as we adjusted to the strange 			situation of virtual learning during a pandemic. Now post-university, this call for sick speech echoes as a call for remedy.
 		
 		<p>
-		The format of an online cookbook was introduced through Tiare Ribeaux’s <a href="http://bioplastic-cookbook.schloss-post.com/" class="external">  		  Bioplastics Cookbook for Ritual Healing from Petrochemical Landscapes</a>, which exists as an open-source ritual in webpage form. But what began as 		      a resource to share with others eventually became a way for us to keep in touch and retrospectively served as an armature to propel thoughts forward 		   into praxis. In this assemblage, thoughts, recipes, conversations and interruptions, borrowing from Anna Tsing, become performances of livability.
+		The format of an online cookbook was introduced through Tiare Ribeaux’s <a href="http://bioplastic-cookbook.schloss-post.com/" class="external">  		  Bioplastics Cookbook for Ritual Healing from Petrochemical Landscapes</a>, which exists as an open-source ritual in webpage form. <button onclick="playSelection()">▶</button> But what began as 		      a resource to share with others eventually became a way for us to keep in touch and retrospectively served as an armature to propel thoughts forward 		   into praxis. In this assemblage, thoughts, recipes, conversations and interruptions, borrowing from Anna Tsing, become performances of livability.
 		
 		<p>
 		Referencing <a href="http://www.luckysoap.com/statements/handmadeweb.html" class="external">J.R. Carpenter</a>, who "evokes the term 'handmade web' 		    in order to draw attention to the physical body...to suggest slowness and smallness as a form of resistance”, the text is published as a hand-coded  		 website with the generous support of Xpace Cultural Centre. It is a conversation, documented, and throughout it we shared feelings of grief, 		        longing, and healing without over reliance or burden. Asynchronously written thoughts, tangential comments, and recipes interrupt and weave 			together; the experience was slow, a form of processing that had no deadline. We invite you to click through, to jump forward and backward. This 		 garden offers <a href="/Reflections-on-Slowness/Multi-species-care.htm" class="link">reflections on slowness</a> and recipes in slow work. 			Conversations vary from mothers to frogs and frontiers; fermentation and <a href="/Slow-Work/Spruce-gum-resin.htm" class="link">plastic</a>; on <a 		   href="/Mounds/index.htm" class="link">mounds</a> and decay. There is more to be found throughout. 	

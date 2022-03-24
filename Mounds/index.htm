@@ -41,6 +41,103 @@ left:80%;}
 </style>
 
 		</head>
+
+		<script src="https://unpkg.com/tone"></script>
+		<script>
+
+            var delta = 0;
+            var synthIntervalA;
+            var synthIntervalB;
+            var synthIntervalC;
+            var synthIntervalD;
+
+            function loop() {
+                const loop = setInterval(anim, 10);
+            }
+
+            function anim() {
+                delta += 0.01;
+                setRotation(delta);
+                // console.log(delta);
+                delta %= 6;
+            }
+
+            function createDronePlusPanner(positionX, positionY, positionZ) {
+                const panner = new Tone.Panner3D({
+                    panningModel: "HRTF",
+                    positionX,
+                    positionY,
+                    positionZ,
+                }).toDestination();
+
+                const synth = new Tone.Synth({
+                    oscillator: {
+                        type: "sine"
+                    },
+                    envelope: {
+                        attack: 0.95,
+                        decay: 0.95,
+                        sustain: .95,
+                        release: 5
+                    },
+                    volume: -12
+                }).connect(panner);
+                
+                return synth;
+            }
+
+
+            function chord(listOfFreqs) {
+
+                for (const freq of listOfFreqs) {
+                    monoDrone(freq);
+                }
+
+            }
+
+
+            function monoDrone(val) {
+                var randX = Math.random() * 2;
+                var randY = Math.random() * 2;
+                var randZ = Math.random() * 2;
+
+                var synth = createDronePlusPanner(randX,randY,randZ);
+                const now = Tone.now();
+
+                synth.triggerAttack(val, now);
+                synth.triggerRelease(now+28);
+                }
+
+            function setRotation(angle) {
+			    Tone.Listener.forwardX.value = Math.sin(angle);
+			    Tone.Listener.forwardY.value = 0;
+			    Tone.Listener.forwardZ.value = -Math.cos(angle);
+		    }
+
+			function playSelection() {
+                clearInterval(synthIntervalA);
+                chord([349.23,392.00,523.25]);
+                synthIntervalA = setInterval("playSelection()", 28200);
+			}
+            
+		</script>
+		<style type="text/css">
+
+			button {
+			background-color: #353523;
+			border: none;
+			padding-bottom: 4px;
+			color: #ffb8bf;
+			line-height: inherit;
+			font-size: inherit;
+			}
+		
+			button:focus {
+			border: none;
+			}
+		
+		</style>
+
 		<body>
 
 <h3>Slow Healing</h3>
@@ -55,7 +152,7 @@ left:80%;}
 		 <p> And so there are questions of what grows on the mound, and what dissolves or regenerates it? Is it <a href="/Slow-Work/Bokashi-Composting.htm" class="link">compostable?</a>
 </div>
 <div class="meech">
-<p> I came across the term guerilla grafting and thought of the possibilities of a graft not filling a noticeable void but creating a new (and different) pathway for growth (“tissues of plants are joined so as to continue their growth together”). Perhaps the inverse of extraction is a grafting rather than a filling; an action that also nests itself also into propagating. <span class="sticky">Propagation</span> refers to that new node of growth being separated from the source to be planted or grafted. Propagation is the creation of offspring from a mother. How might we think about growth within and alongside degrowth.</p>
+<p> I came across the term guerilla grafting and thought of the possibilities of a graft not filling a noticeable void but creating a new (and different) pathway for growth (“tissues of plants are joined so as to continue their growth together”). Perhaps the inverse of extraction is a grafting rather than a filling; an action that also nests itself also into propagating. <span class="sticky">Propagation</span> refers to that new node of growth being separated from the source to be planted or grafted. Propagation is the creation of offspring from a mother. How might we think about growth within and alongside degrowth.<button onclick="playSelection()">▶</button></p>
 </div>
 <br>
 <div class="evelyn">
