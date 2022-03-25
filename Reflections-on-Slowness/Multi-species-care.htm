@@ -40,9 +40,47 @@
           }
 
       </style>
+
+
+<script src="https://unpkg.com/tone"></script>
+<script src="../js/slc-tone.js"></script>
+<script>
+  function playSelectionOne() {
+            clearInterval(synthIntervalA);
+            // A# C# E# G#
+            chord(['A#4','C#4','E#4','G#4']);
+            synthIntervalA = setInterval("playSelectionOne()", 28200);
+  }
+
+  function playSelectionTwo() {
+            clearInterval(synthIntervalB);
+            // A# C# E# G#
+            chord(['C#5','G#5']);
+            synthIntervalB = setInterval("playSelectionTwo()", 28200);
+  }
+        
+</script>
+<style type="text/css">
+
+  button {
+  background-color: #eeeedd;
+  border: none;
+  padding-bottom: 4px;
+  color: #ffb8bf;
+  line-height: inherit;
+  font-size: inherit;
+  }
+
+  button:focus {
+  border: none;
+  }
+
+</style>
+
+
 </head>
 
-<body>
+<body onload="loop()">
   <div class="meech">
     <h3>Reflections on Slowness</h3>
       <p><em>Multispecies Care & Collaboration</em></p>
@@ -53,13 +91,13 @@
           On a burning planet, we must embrace our multispecies kin (fungal colonies, lactobacillus, soil microbes, etc.) as the root, herb and salt of                       regeneration. On a burning planet, communal care must begin in the peripheries, to beings we may not consider alive, providing material mutual aid to keep           each other nourished and safe.</p>
 
           <p> 
-           Learn how to forage, <a href="/Slow-Work/cherryblossom-yeast-water.htm" class="link">ferment</a>, and grow food. Share what you’ve collected, harvested,            and learned. Find pleasure in care, find a deep sense of returning. These practices, unsurprisingly co-opted for their aesthetics, are ancestral                    practices that have been lost through violent state projects of assimilation and labor control. </p>
+           Learn how to forage, <a href="/Slow-Work/cherryblossom-yeast-water.htm" class="link">ferment</a>, and grow food. Share what you’ve collected, harvested,            and learned. Find pleasure in care, <button onclick="playSelectionOne()">▶</button> find a deep sense of returning. These practices, unsurprisingly co-opted for their aesthetics, are ancestral                    practices that have been lost through violent state projects of assimilation and labor control. </p>
 
           <p>
            An embrace of communal care in all of its forms involves embracing riot as a form of remediation; under capitalism the destruction of property will                  always supersede importance over the destruction of life.</p>
           
           <p>
-           I can only understand this as what a dying empire feels like, albeit on a scale so small it’s only conceivable through the horror of each state-                    sanctioned death. The pavement is warming here again and still there are the waves we have yet to contend with: bodies stacked up in the dirt, their last            assisted breaths taken alone with fatigued medical staff. I don’t know how to sit with all of this decay. We are moving forward without ackowledging what            has been lost and I'm afraid that this mode of being, this dissapearing, will continue on. It echoes, <i>there's not going to be anything left.</i></p>
+           I can only understand this as what a dying empire feels like, albeit on a scale so small it’s only conceivable through the horror of each state-                    sanctioned death. The pavement is warming here again and still there are the waves we have yet to contend with: bodies stacked up in the dirt, their last            assisted breaths taken alone with fatigued medical staff. I don’t know how to sit with all of this decay. We are moving forward without ackowledging what            has been lost and I'm afraid that this mode of being, this dissapearing, will continue on. It echoes, <i>there's not going to be anything left.</i><button onclick="playSelectionTwo()">▶</button></p>
 </div>
 <img src="ASCII-1.png" class="butterfly" width="100px">
 <img src="ASCII2.png" class="duck1" width="100px">
