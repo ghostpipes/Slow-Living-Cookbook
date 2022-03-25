@@ -1,3 +1,8 @@
+/*
+
+;-) aob.
+
+*/
 var delta = 0;
 var synthIntervalA;
 var synthIntervalB;
@@ -11,7 +16,6 @@ function loop() {
 function anim() {
     delta += 0.01;
     setRotation(delta);
-    // console.log(delta);
     delta %= 6;
 }
 
@@ -31,9 +35,9 @@ function createDronePlusPanner(positionX, positionY, positionZ) {
             attack: 0.95,
             decay: 0.95,
             sustain: .95,
-            release: 5
+            release: 15
         },
-        volume: -12
+        volume: -24
     }).connect(panner);
     
     return synth;
