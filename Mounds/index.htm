@@ -4,6 +4,57 @@
 			<title>Slow Healing</title>
 <link rel="stylesheet" type="text/css" href="../style.css">
 <link rel="icon" type="image/x-icon" href="Favicon.png">
+
+<script src="https://unpkg.com/tone"></script>
+<script src="../js/slc-tone.js"></script>
+<script>
+	function playSelection(selection) {
+
+		switch(selection) {
+			case 1:
+				clearInterval(synthIntervalA);
+				chord(['C#4','F4']);
+				synthIntervalA = setInterval(function(){
+					playSelection(1)
+				},28200)
+				break;
+			case 2:
+				clearInterval(synthIntervalB);
+				chord(['A#4']);
+				synthIntervalB = setInterval(function(){
+					playSelection(2)
+				},28200)
+				break;
+			case 3:
+				clearInterval(synthIntervalA);
+				chord(['B#4']);
+				synthIntervalA = setInterval(function(){
+					playSelection(3)
+				},28200)
+				chord([]);
+				break;
+		}
+	}
+	
+</script>
+
+<style type="text/css">
+
+	button {
+	background-color: #353523;
+	border: none;
+	padding-bottom: 4px;
+	color: #ffb8bf;
+	line-height: inherit;
+	font-size: inherit;
+	}
+
+	button:focus {
+	border: none;
+	}
+
+</style>
+
 <style type="text/css">
 
 img:hover {opacity: 1;
@@ -39,36 +90,7 @@ top:80%;
 left:80%;}
 
 </style>
-
 		</head>
-
-		<script src="https://unpkg.com/tone"></script>
-		<script src="../js/slc-tone.js"></script>
-		<script>
-
-			function playSelection() {
-                clearInterval(synthIntervalA);
-                chord([349.23,392.00,523.25]);
-                synthIntervalA = setInterval("playSelection()", 28200);
-			}
-            
-		</script>
-		<style type="text/css">
-
-			button {
-			background-color: #353523;
-			border: none;
-			padding-bottom: 4px;
-			color: #ffb8bf;
-			line-height: inherit;
-			font-size: inherit;
-			}
-		
-			button:focus {
-			border: none;
-			}
-		
-		</style>
 
 		<body onload="loop()">
 
@@ -84,7 +106,7 @@ left:80%;}
 		 <p> And so there are questions of what grows on the mound, and what dissolves or regenerates it? Is it <a href="/Slow-Work/Bokashi-Composting.htm" class="link">compostable?</a>
 </div>
 <div class="meech">
-<p> I came across the term guerilla grafting and thought of the possibilities of a graft not filling a noticeable void but creating a new (and different) pathway for growth (“tissues of plants are joined so as to continue their growth together”). Perhaps the inverse of extraction is a grafting rather than a filling; an action that also nests itself also into propagating. <span class="sticky">Propagation</span> refers to that new node of growth being separated from the source to be planted or grafted. Propagation is the creation of offspring from a mother. How might we think about growth within and alongside degrowth.<button onclick="playSelection()">▶</button></p>
+<p> I came across the term guerilla grafting and thought of the possibilities of a graft not filling a noticeable void but creating a new (and different) pathway for growth (“tissues of plants are joined so as to continue their growth together”). Perhaps the inverse of extraction is a grafting rather than a filling; an action that also nests itself also into propagating. <span class="sticky">Propagation</span> refers to that new node of growth being separated from the source to be planted or grafted. Propagation is the creation of offspring from a mother. How might we think about growth within and alongside degrowth.<button onclick="playSelection(1)">▶</button></p>
 </div>
 <br>
 <div class="evelyn">
@@ -92,7 +114,7 @@ left:80%;}
 There are mindsets to be degrown coming back to ideas of unlearning and relearning through community and collaboration, be that with peers or non-human communities (thinking about Kimmerer here again).</p6>
 <br>
 <br>
-<p7>Degrowth, or at least economic degrowth, came out of the late 70’s (I believe) to pose the question of whether we could continue to have economic growth while respecting planetary bounds. Jason Hickel talks about degrowth as a theory of “radical abundance” because it requires ending manufactured scarcity that drives over extraction and consumption, and opening back up the commons. For millennia there have been warnings within Indigenous teaching about unchecked consumption that colonialism and capitalism has created. Winona LaDuke and Robin Wall Kimmerer call this Windigo economics and infrastructure, drawing of the Ojibway legend of the Windigo; a monster whose hunger only grows as it consumes.</p7><br>
+<p7>Degrowth, or at least economic degrowth, came out of the late 70’s (I believe) to pose the question of whether we could continue to have economic growth while respecting planetary bounds. Jason Hickel talks about degrowth as a theory of “radical abundance” because it requires ending manufactured scarcity that drives over extraction and consumption, and opening back up the commons. For millennia there have been warnings within Indigenous teaching about unchecked consumption that colonialism and capitalism has created. Winona LaDuke and Robin Wall Kimmerer call this Windigo economics and infrastructure, drawing of the Ojibway legend of the Windigo; a monster whose hunger only grows as it consumes.<button onclick="playSelection(2)">▶</button></p7><br>
 <blockquote>
 	<p><em>In the natural as well as the built environment, positive feedback leads inexorably to change - sometimes to growth, sometimes to destruction. When growth is unbalanced, however, you can’t always tell the difference [...] On a grander scale, too, we seem to be living in an era of Windigo economics of fabricated demand and compulsive over consumption. What Native people once sought to rein in we are now asked to unleash in a systematic policy of sanctioned greed.</em><br> - Braiding Sweetgrass, 308 </p>
 </blockquote>
@@ -101,7 +123,7 @@ There are mindsets to be degrown coming back to ideas of unlearning and relearni
 <br>
 <br>
 </div>
-<p><b>Mound over Mass Grave</b></p>
+<p><b>Mound over Mass Grave</b><button onclick="playSelection(3)">▶</button></p>
 <div class="meech">
 	<p> And then we have the mound and the pastoral landscape and the neon green grass in the <img src="comment-3.png" class="number-three" width=300px><span class="comment">Windows XP</span> defult background image, signaling the new tech <span class="sticky"><a href="/frontiers/rolling-back-frontiers.htm" class="link"> frontier </a></span> in California. And then we have the landfill. And the mound over a mass grave, a tumulus.</p>
 <p> My grandparents live by a large mound in a small town. The Wikipedia page is sparse, only listing the record high and low temperatures they’ve had from 1981-2010 and five notable people, three of which are hockey players. (The other two are a writer and a curler.) On the mound there is a deteriorating stone structure we walked to once. Beside the mound is a pond with ducks and many mosquitos. The dirt road that surrounds it is the only place I’ve driven. I’ve always wanted to learn more about the mound (and why it was named that way) but I’ve only been able to find fragments. Perhaps that’s all there is, I’m just left unsatisfied.

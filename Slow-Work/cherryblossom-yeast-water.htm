@@ -4,6 +4,54 @@
     <Title> Cherry Blossom Yeast Water Recipe</Title>
 <link rel="stylesheet" type="text/css" href="../style.css">
 <link rel="icon" type="image/x-icon" href="../Favicon.png">
+<script src="https://unpkg.com/tone"></script>
+<script src="../js/slc-tone.js"></script>
+<style type="text/css">
+
+  button {
+  background-color: #353523;
+  border: none;
+  padding-bottom: 4px;
+  color: #ffb8bf;
+  line-height: inherit;
+  font-size: inherit;
+  }
+
+  button:focus {
+  border: none;
+  }
+
+</style>
+<script>
+	function playSelection(selection) {
+
+		switch(selection) {
+			case 1:
+				clearInterval(synthIntervalA);
+				chord(['A#4','D#4']);
+				synthIntervalA = setInterval(function(){
+					playSelection(1)
+				},28200)
+				break;
+			case 2:
+				clearInterval(synthIntervalB);
+				chord(['E#4']);
+				synthIntervalB = setInterval(function(){
+					playSelection(2)
+				},28200)
+				break;
+			case 3:
+				clearInterval(synthIntervalA);
+				chord(['G#4']);
+				synthIntervalA = setInterval(function(){
+					playSelection(3)
+				},28200)
+				chord([]);
+				break;
+		}
+	}
+	
+</script>
 </Head>
 <body>
 <div class="meech">
@@ -16,7 +64,7 @@
   <li>18g white granulated sugar[3]</li>
   <li>Glass jar</li>
   <li>Cheesecloth, paper towel, clean scrap fabric</li>
-  <li> Something to secure it</li>
+  <li> Something to secure it</li>▶▶▶
 </ul>
 
 <em>Notes</em>
@@ -30,20 +78,20 @@
 <p>Combine ingredients in an airtight vessel and stir or shake vigorously to break up blossoms slightly and dissolve sugar. More on beginning with anaerobic fermentation <a href=" http://www.junkomine.com/blog-/2015/2/21/anaerobic-without-oxgen-or-aerobic-with-oxgen-" class="external">here</a>. Leave in a warm place like an oven, off with the light on.[1] Make sure to monitor so that it gets no warmer than 48° C or any wild yeasts will begin to die.
 
 <p><em> Day Two</em>
-  <p>Stir and leave in a warm place. Look for tiny signs of life, it can be quite exciting.</p>
+  <p>Stir and leave in a warm place. Look for tiny signs of life, it can be quite exciting.<button onclick="playSelection(1)">▶</button></p>
 
 <p><em>Day Three</em>
 <p>By now, there may or may not be bubbles and the water may or may not be getting cloudy. Optionally, inoculate with a small amount of starter from a previous wild yeast water along with some more food (sugar).[2] Stir, remove airtight seal and only cover to protect from fruit flies. Leave in a warm place.
 
   <p><em>Day Four</em>
-    <p> Now the days are going to differ between environments and seasons but at some point in the process the water should be cloudy (mine was peachy from the light pink flowers), have a pleasant, light floral wine smell and some bubbles. Flowers may also clump and float to the top. Maintaining a warm temperature seems to the difference between sluggish and vigorous life so it seems necessary to keep in a warm place.[3]
+    <p> Now the days are going to differ between environments and seasons but at some point in the process the water should be cloudy (mine was peachy from the light pink flowers), have a pleasant, light floral wine smell and some bubbles. Flowers may also clump and float to the top. Maintaining a warm temperature seems to the difference between sluggish and vigorous life <button onclick="playSelection(2)">▶</button> so it seems necessary to keep in a warm place.[3]
 
       <p><em>Day Five</em>
         <p>Once the water is fizzy (you can look for effervescence like in a soda and even put it up to your ear to listen), strain the flowers from the water. To a new vessel, add 250g (boiled and left to cool if tap) water, 250g yeast water and 25g sugar and mix. Leave on the counter, covered but not airtight, until visibly fizzy again. At this point it’s able to be used to carbonate homemade soda, ferment juice or tea into alcohol or as the leavening agent in a bread recipe.[4]
 
           <p><em> More Notes </em>
             <ol>
-              <li>Write a note on the oven so you (or your housemates) don’t accidentally preheat while your wild yeast is in there.</li>
+              <li>Write a note on the oven so you (or your housemates) don’t accidentally preheat<button onclick="playSelection(3)">▶</button> while your wild yeast is in there.</li>
               <li>I began a ginger bug at the same time and, since it got bubbling sooner, decided to add it to the yeast water to help it along. In previous attempts I failed because I didn’t have enough flowers but this also ensured there were some wild yeasts floating around. In this case I added 0.5 Tbsp sugar and 1 Tbsp unripe ginger bug. </li>
               <li>The temperature in the oven had gone up to 38° which initially worried me but it seems to have helped boost activity. </li>
               <li> I’ve found that with the long fermentation times, making a biga or poolish (a preferment) to then use in a dough has worked best. I used the recipe for an 80% biga loaf in Flour, Salt, Water, Yeast, replacing all water in the recipe for yeast water. This method of replacing water may be used in a dough without a preferment but be sure to give it time to rise. Mine showed pretty vigorous activity after an initial overnight ferment. The resulting bread was subtly and pleasantly cherry blossom scented. </li>
